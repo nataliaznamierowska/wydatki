@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Przychody i wydatki</title>
+    <style>
+        body {
+            background-color: rgb(255, 195, 219);
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #balance-text {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>Przychody i wydatki</h1>
+
+    <h2>Przychody</h2>
+    <form id="income-form">
+        Nazwa: <input type="text" id="income-name">
+        Kwota: <input type="number" id="income-amount">
+        <button type="button" onclick="addIncome()">Dodaj</button>
+    </form>
+
+    <h2>Wydatki</h2>
+    <form id="expense-form">
+        Nazwa: <input type="text" id="expense-name">
+        Kwota: <input type="number" id="expense-amount">
+        <button type="button" onclick="addExpense()">Dodaj</button>
+    </form>
+
+    <h2>Bilans</h2>
+    <p id="balance-text"></p>
+
+    <h2>Lista przychodów</h2>
+    <ul id="income-list"></ul>
+
+    <h2>Lista wydatków</h2>
+    <ul id="expense-list"></ul>
+</body>
+
+</html>
