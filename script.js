@@ -11,7 +11,7 @@ function addIncome() {
   const name = nameInput.value;
   const amount = parseFloat(amountInput.value);
 
-  if (!name || amount < 0.01) {
+  if (!name || isNaN(amount) || amount <= 0) {
     alert('Wprowadź poprawne dane (nazwa i kwota)!');
     return;
   }
@@ -29,7 +29,7 @@ function addExpense() {
   const name = nameInput.value;
   const amount = parseFloat(amountInput.value);
 
-  if (!name || amount < 0.01) {
+  if (!name || isNaN(amount) || amount <= 0) {
     alert('Wprowadź poprawne dane (nazwa i kwota)!');
     return;
   }
@@ -72,7 +72,11 @@ function updateIncomeList() {
 
   incomes.forEach((income, index) => {
     const listItem = document.createElement('li');
-    listItem.innerHTML = `${income.name}: ${income.amount.toFixed(2)} PLN <button onclick="deleteIncome(${index})">Usuń</button>`;
+    listItem.innerHTML = `
+      ${income.name}: ${income.amount.toFixed(2)} PLN
+      <button class="edit-button" onclick="editIncome(${index})">Edytuj</button>
+      <button class="delete-button" onclick="deleteIncome(${index})">Usuń</button>
+    `;
     incomeList.appendChild(listItem);
   });
 }
@@ -82,7 +86,53 @@ function updateExpenseList() {
 
   expenses.forEach((expense, index) => {
     const listItem = document.createElement('li');
-    listItem.innerHTML = `${expense.name}: ${expense.amount.toFixed(2)} PLN <button onclick="deleteExpense(${index})">Usuń</button>`;
+    listItem.innerHTML = `
+      ${expense.name}: ${expense.amount.toFixed(2)} PLN
+      <button class="edit-button" onclick="editExpense(${index})">Edytuj</button>
+      <button class="delete-button" onclick="deleteExpense(${index})">Usuń</button>
+    `;
     expenseList.appendChild(listItem);
   });
 }
+
+function editIncome(index) {
+  const editedIncome = incomes[index];
+  const newName = prompt('Podaj nową nazwę przychodu:', editedIncome.name);
+  const newAmount = parseFloat(prompt('Podaj nową kwotę przychodu:', editedIncome.amount));
+
+  if (newName !== null && !isNaN(newAmount) && newAmount > 0) {
+    editedIncome.name = newName;
+    editedIncome.amount = newAmount;
+    updateIncomeList();
+    updateBalance();
+  }
+}
+
+function editExpense(index) {
+  const editedExpense = expenses[index];
+  const newName = prompt('Podaj nową nazwę wydatku:', editedExpense.name);
+  const newAmount = parseFloat(prompt('Podaj nową kwotę wydatku:', editedExpense.amount));
+
+  if (newName !== null && !isNaN(newAmount) && newAmount > 0) {
+    editedExpense.name = newName;
+    editedExpense.amount = newAmount;
+    updateExpenseList();
+    updateBalance();
+  }
+}
+
+// Obsługa formularzy poprzez zdarzenie "submit"
+document.getElementById('income-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  addIncome();
+});
+
+document.getElementById('expense-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  addExpense();
+});
+
+// Inicjalizacja listy przychodów i wydatków
+updateIncomeList();
+updateExpenseList();
+updateBalance();
