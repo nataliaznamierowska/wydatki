@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Domowy budżet</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <div class="container">
-    <h1>Domowy budżet</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domowy budżet</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Domowy budżet</h1>
 
-    <main class="converter">
-      <h2>Przychody</h2>
-      <form id="income-form">
-        Nazwa: <input type="text" id="income-name">
-        Kwota: <input type="number" id="income-amount" step="0.01">
-        <button type="button" onclick="addIncome()">Dodaj</button>
-      </form>
+      <main class="converter">
+        <h2>Przychody</h2>
+        <form id="income-form">
+          <label for="income-name">Nazwa:</label>
+          <input type="text" id="income-name" />
+          <label for="income-amount">Kwota:</label>
+          <input type="number" id="income-amount" step="0.01" />
+          <button type="button" onclick="addIncome()">Dodaj</button>
+        </form>
 
-      <h2>Wydatki</h2>
-      <form id="expense-form">
-        Nazwa: <input type="text" id="expense-name">
-        Kwota: <input type="number" id="expense-amount" step="0.01">
-        <button type="button" onclick="addExpense()">Dodaj</button>
-      </form>
-    </main>
+        <h2>Wydatki</h2>
+        <form id="expense-form">
+          <label for="expense-name">Nazwa:</label>
+          <input type="text" id="expense-name" />
+          <label for="expense-amount">Kwota:</label>
+          <input type="number" id="expense-amount" step="0.01" />
+          <button type="button" onclick="addExpense()">Dodaj</button>
+        </form>
+      </main>
 
-    <h2>Bilans</h2>
-    <p id="balance-text"></p>
+      <h2>Bilans</h2>
+      <p class="balance-text" id="balance-text"></p>
 
-    <h2>Lista przychodów</h2>
-    <ul id="income-list"></ul>
+      <h2>Lista przychodów</h2>
+      <ul class="list" id="income-list"></ul>
 
-    <h2>Lista wydatków</h2>
-    <ul id="expense-list"></ul>
-  </div>
-</body>
+      <h2>Lista wydatków</h2>
+      <ul class="list" id="expense-list"></ul>
+    </div>
+  </body>
 </html>
