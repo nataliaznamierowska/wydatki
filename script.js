@@ -1,4 +1,6 @@
-const resultElement = document.getElementById("balance-text");
+const availableBalanceElement = document.getElementById("available-balance");
+const totalIncomeElement = document.getElementById("total-income");
+const totalExpenseElement = document.getElementById("total-expense");
 const incomeList = document.getElementById("income-list");
 const expenseList = document.getElementById("expense-list");
 
@@ -62,11 +64,13 @@ function updateBalance() {
   const balance = totalIncome - totalExpense;
 
   if (balance > 0) {
-    resultElement.innerText = `Możesz jeszcze wydać ${balance.toFixed(2)} PLN`;
+    availableBalanceElement.innerText = `Możesz jeszcze wydać ${balance.toFixed(
+      2
+    )} PLN`;
   } else if (balance === 0) {
-    resultElement.innerText = "Bilans wynosi zero";
+    availableBalanceElement.innerText = "Bilans wynosi zero";
   } else {
-    resultElement.innerText = `Bilans jest ujemny. Jesteś na minusie ${Math.abs(
+    availableBalanceElement.innerText = `Bilans jest ujemny. Jesteś na minusie ${Math.abs(
       balance
     ).toFixed(2)} PLN`;
   }
@@ -74,6 +78,8 @@ function updateBalance() {
 
 function updateIncomeList() {
   incomeList.innerHTML = "";
+
+  let totalIncome = 0;
 
   incomes.forEach((income, index) => {
     const listItem = document.createElement("li");
@@ -83,11 +89,17 @@ function updateIncomeList() {
       <button class="delete-button" onclick="deleteIncome(${index})">Usuń</button>
     `;
     incomeList.appendChild(listItem);
+
+    totalIncome += income.amount;
   });
+
+  totalIncomeElement.innerText = `${totalIncome.toFixed(2)} PLN`;
 }
 
 function updateExpenseList() {
   expenseList.innerHTML = "";
+
+  let totalExpense = 0;
 
   expenses.forEach((expense, index) => {
     const listItem = document.createElement("li");
@@ -97,7 +109,11 @@ function updateExpenseList() {
       <button class="delete-button" onclick="deleteExpense(${index})">Usuń</button>
     `;
     expenseList.appendChild(listItem);
+
+    totalExpense += expense.amount;
   });
+
+  totalExpenseElement.innerText = `${totalExpense.toFixed(2)} PLN`;
 }
 
 function editIncome(index) {
