@@ -4,25 +4,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #3b76ff;
+  min-height: 100vh; /* Używamy min-height zamiast height, aby zapobiec ucinaniu treści */
+  background-color: #b1aeff;
 }
 
 .container {
+  width: 90%; /* Szerokość kontenera dostosowana do szerokości ekranu */
   max-width: 400px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .text-heading {
   text-align: center;
   color: #333;
+  font-size: 24px;
+  margin-bottom: 20px; /* Dodajemy odstęp od treści */
 }
 
 .subheading {
   color: #555;
-  margin-top: 30px;
+  margin-top: 10px; /* Lekko zmniejszamy odstęp */
 }
 
 .form {
@@ -30,17 +34,22 @@ body {
 }
 
 .input {
-  padding: 5px;
+  padding: 10px;
   width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
 }
 
 .button {
-  padding: 5px 10px;
+  padding: 10px 15px;
   background-color: #333;
   color: #fff;
   border: none;
   cursor: pointer;
   width: 100%;
+  border-radius: 3px;
+  font-size: 16px;
 }
 
 .button:hover {
@@ -50,6 +59,7 @@ body {
 .balance-text {
   font-weight: bold;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .list {
@@ -59,7 +69,18 @@ body {
 }
 
 .list-item {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 .edit-button {
