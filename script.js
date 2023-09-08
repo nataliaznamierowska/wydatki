@@ -4,8 +4,8 @@ const totalExpenseElement = document.getElementById("total-expense");
 const incomeList = document.getElementById("income-list");
 const expenseList = document.getElementById("expense-list");
 
-let incomes = [];
-let expenses = [];
+const incomes = [];
+const expenses = [];
 
 function addIncome() {
   const nameInput = document.getElementById("income-name");
@@ -84,10 +84,10 @@ function updateIncomeList() {
   incomes.forEach((income, index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      ${income.name}: ${income.amount.toFixed(2)} PLN
-      <button class="edit-button" onclick="editIncome(${index})">Edytuj</button>
-      <button class="delete-button" onclick="deleteIncome(${index})">Usuń</button>
-    `;
+            ${income.name}: ${income.amount.toFixed(2)} PLN
+            <button class="edit-button" onclick="editIncome(${index})">Edytuj</button>
+            <button class="delete-button" onclick="deleteIncome(${index})">Usuń</button>
+        `;
     incomeList.appendChild(listItem);
 
     totalIncome += income.amount;
@@ -104,10 +104,10 @@ function updateExpenseList() {
   expenses.forEach((expense, index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      ${expense.name}: ${expense.amount.toFixed(2)} PLN
-      <button class="edit-button" onclick="editExpense(${index})">Edytuj</button>
-      <button class="delete-button" onclick="deleteExpense(${index})">Usuń</button>
-    `;
+            ${expense.name}: ${expense.amount.toFixed(2)} PLN
+            <button class="edit-button" onclick="editExpense(${index})">Edytuj</button>
+            <button class="delete-button" onclick="deleteExpense(${index})">Usuń</button>
+        `;
     expenseList.appendChild(listItem);
 
     totalExpense += expense.amount;
@@ -146,7 +146,6 @@ function editExpense(index) {
   }
 }
 
-// Obsługa formularzy poprzez zdarzenie "submit"
 document
   .getElementById("income-form")
   .addEventListener("submit", function (event) {
@@ -161,7 +160,6 @@ document
     addExpense();
   });
 
-// Inicjalizacja listy przychodów i wydatków
 updateIncomeList();
 updateExpenseList();
 updateBalance();

@@ -9,41 +9,45 @@
   </head>
   <body>
     <div class="container">
-      <h1>Domowy budżet</h1>
+      <h1 class="text-heading">Domowy budżet</h1>
 
       <main class="converter">
-        <h2>Przychody</h2>
-        <form id="income-form">
-          <label for="income-name">Nazwa:</label>
-          <input type="text" id="income-name" />
-          <label for="income-amount">Kwota:</label>
-          <input type="number" id="income-amount" step="0.01" />
-          <button type="button" onclick="addIncome()">Dodaj</button>
+        <h2 class="text-heading">Przychody</h2>
+        <form id="income-form" class="form">
+          <label for="income-name" class="text-heading">Nazwa:</label>
+          <input type="text" id="income-name" class="input" />
+          <label for="income-amount" class="text-heading">Kwota:</label>
+          <input type="number" id="income-amount" step="0.01" class="input" />
+          <button type="button" class="button" onclick="addIncome()">
+            Dodaj
+          </button>
         </form>
 
-        <h2>Wydatki</h2>
-        <form id="expense-form">
-          <label for="expense-name">Nazwa:</label>
-          <input type="text" id="expense-name" />
-          <label for="expense-amount">Kwota:</label>
-          <input type="number" id="expense-amount" step="0.01" />
-          <button type="button" onclick="addExpense()">Dodaj</button>
+        <h2 class="text-heading">Wydatki</h2>
+        <form id="expense-form" class="form">
+          <label for="expense-name" class="text-heading">Nazwa:</label>
+          <input type="text" id="expense-name" class="input" />
+          <label for="expense-amount" class="text-heading">Kwota:</label>
+          <input type="number" id="expense-amount" step="0.01" class="input" />
+          <button type="button" class="button" onclick="addExpense()">
+            Dodaj
+          </button>
         </form>
       </main>
 
-      <h2>Dostępny bilans</h2>
-      <p id="available-balance">0.00 PLN</p>
+      <h2 class="text-heading">Dostępny bilans</h2>
+      <p id="available-balance" class="balance-text">0.00 PLN</p>
 
-      <h2>Lista przychodów</h2>
+      <h2 class="text-heading">Lista przychodów</h2>
       <ul class="list" id="income-list"></ul>
 
-      <h2>Suma przychodów</h2>
-      <p id="total-income">0.00 PLN</p>
+      <h2 class="text-heading">Suma przychodów</h2>
+      <p id="total-income" class="balance-text">0.00 PLN</p>
 
-      <h2>Lista wydatków</h2>
+      <h2 class="text-heading">Lista wydatków</h2>
       <ul class="list" id="expense-list"></ul>
-      <h2>Suma wydatków</h2>
-      <p id="total-expense">0.00 PLN</p>
+      <h2 class="text-heading">Suma wydatków</h2>
+      <p id="total-expense" class="balance-text">0.00 PLN</p>
     </div>
   </body>
 </html>
